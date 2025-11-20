@@ -1,11 +1,10 @@
 import java.time.LocalDate;
 
-public class Tuteur {
-  private int id;
-  private String nom;
-  private String prenom;
-  private LocalDate dateNaissance;
-  private String email;
-  private String numeroTelephone;
-  private String descriptionLien;
+public class Tuteur extends Personne {
+  private String lienEtudiant;
+
+  public Tuteur(int id, String nom, String prenom, LocalDate dateNaissance, String email, String numeroTel, String lienEtudiant) {
+    super(id, nom, prenom, dateNaissance, email, numeroTel);
+    this.lienEtudiant = lienEtudiant;
+  }
 }

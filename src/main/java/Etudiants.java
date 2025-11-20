@@ -1,16 +1,12 @@
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.time.LocalDate;
 
-@AllArgsConstructor
-@Getter
-public class Etudiants {
-  private String id;
-  private String nom;
-  private String prenom;
-  private LocalDate dateNaissance;
-  private String email;
-  private String numeroTelephone;
+public class Etudiants extends Personne{
+  private String groupe;
   private Tuteur tuteur;
+
+  public Etudiants(int id, String nom, String prenom, LocalDate dateNaissance, String email, String numeroTel, String groupe, Tuteur tuteur) {
+    super(id, nom, prenom, dateNaissance, email, numeroTel);
+    this.groupe = groupe;
+    this.tuteur = tuteur;
+  }
 }

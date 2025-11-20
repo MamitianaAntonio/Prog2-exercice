@@ -1,10 +1,1 @@
-import java.time.LocalDate;
-
-public class Enseignant {
-  private int id;
-  private String nom;
-  private String prenom;
-  private LocalDate dateNaissance;
-  private String email;
-  private String specialite;
-}
+import lombok.Getter;import java.time.LocalDate;@Getterpublic class Enseignant extends Personne {  private String specialite;  public Enseignant(int id, String nom, String prenom, LocalDate dateNaissance, String email, String numeroTel, String specialite) {    super(id, nom, prenom, dateNaissance, email, numeroTel);    this.specialite = specialite;  }}

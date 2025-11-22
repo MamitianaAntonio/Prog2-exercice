@@ -10,7 +10,7 @@ import java.util.List;
 public class Note {
   private Etudiant etudiant;
   private Examen examen;
-  private double valeur;
+  private double valeurInitiale;
 
   @Getter(AccessLevel.NONE)
   private final List<HistoriqueNote> historique = new ArrayList<>();
@@ -18,7 +18,7 @@ public class Note {
   public Note(Etudiant etudiant, Examen examen, double valeurInitiale) {
     this.etudiant = etudiant;
     this.examen = examen;
-    this.valeur = valeurInitiale;
-    this.historique.add(new HistoriqueNote(valeurInitiale, "Note initiale"));
+    this.valeurInitiale = valeurInitiale;
+    this.historique.add(new HistoriqueNote(valeurInitiale, "Premier note"));
   }
 }

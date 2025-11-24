@@ -19,4 +19,12 @@ public class Note {
   public void modifierNote (double nouvelleValeur, String motif) {
     historiqueNotes.add(new HistoriqueNote(nouvelleValeur, LocalDateTime.now(), motif));
   }
+
+  public double valeurTemps(LocalDateTime instant) {
+    return historiqueNotes.stream()
+        .filter(heure -> !heure.dateExamen().isAfter(instant))
+        .reduce((premier, deuxieme) -> deuxieme)
+        .map(HistoriqueNote::valeur)
+        .orElse(0.0);
+  }
 }

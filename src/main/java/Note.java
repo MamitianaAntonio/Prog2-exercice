@@ -1,23 +1,22 @@
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Getter
 public class Note {
-  private Etudiant etudiant;
+  private  Etudiant etudiant;
   private Examen examen;
+  private final List<HistoriqueNote> historiqueNotes = new ArrayList<>();
 
-  @Getter(AccessLevel.NONE)
-  private final List<HistoriqueNote> historique = new ArrayList<>();
-
-  public Note(Etudiant etudiant, Examen examen, double valeurInitiale) {
+  public Note(Etudiant etudiant, Examen examen, double valeurInitiale, String motifInitiale) {
     this.etudiant = etudiant;
     this.examen = examen;
-    this.valeurInitiale = valeurInitiale;
-    this.historique.add(new HistoriqueNote(valeurInitiale, "Premier note"));
+    historiqueNotes.add(new HistoriqueNote(valeurInitiale, LocalDateTime.now(), motifInitiale));
+  }
+
+  public void modifierNote (double nouvelleValeur, String motif) {
+    historiqueNotes.add(new HistoriqueNote(nouvelleValeur, LocalDateTime.now(), motif));
   }
 }

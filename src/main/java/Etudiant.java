@@ -1,3 +1,4 @@
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -5,6 +6,7 @@ import java.time.LocalDate;
 
 @Getter
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class Etudiant extends Personne{
   private String groupe;
   private Tuteur tuteur;

@@ -9,5 +9,10 @@ public class NoteService {
   }
 
   public double getExamGrades (Cours cours, Etudiant etudiant, LocalDateTime t) {
+    return notes.stream()
+        .filter(note -> note.getExamen().getCours().equals(cours) && note.getEtudiant().equals(etudiant))
+        .findFirst()
+        .map(note -> note.valeurTemps(t))
+        .orElse(0.0);
   }
 }

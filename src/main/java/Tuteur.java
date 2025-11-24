@@ -1,5 +1,10 @@
+import lombok.Getter;
+import lombok.ToString;
+
 import java.time.LocalDate;
 
+@Getter
+@ToString(callSuper = true)
 public class Tuteur extends Personne {
   private String lienEtudiant;
 
